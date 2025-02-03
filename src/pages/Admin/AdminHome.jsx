@@ -116,7 +116,7 @@ export default function AdminHome() {
             <Box my={"1rem"}>
                 <Card>
                     <CardContent>
-                        <CardTitle title="Staff Shortcuts" icon={<AppsRounded />} />
+                        <CardTitle title="Shortcuts" icon={<AppsRounded />} />
                         <Grid container spacing={2} mt={"0"}>
                             <Grid item xs={12} md={6}>
                                 <Card variant='draggable'>
@@ -125,8 +125,8 @@ export default function AdminHome() {
                                             <Stack direction={{ xs: "row", md: "column" }} alignItems={{ xs: "center", md: "initial" }} spacing={{ xs: "1rem", md: 1 }}>
                                                 <FlagRounded sx={{ width: { xs: "24px", sm: "36px" }, height: { xs: "24px", sm: "36px" } }} />
                                                 <Box>
-                                                    <Typography variant="h6" fontWeight={700}>View Items</Typography>
-                                                    <Typography variant="body1" sx={{ display: { xs: "none", sm: "initial" } }}>Manage Lost & Found Items</Typography>
+                                                    <Typography variant="h6" fontWeight={700}>View All Items</Typography>
+                                                    <Typography variant="body1" sx={{ display: { xs: "none", sm: "initial" } }}>Manage All Lost & Found Items</Typography>
                                                 </Box>
                                             </Stack>
                                         </CardContent>
@@ -142,7 +142,7 @@ export default function AdminHome() {
                                                 <AddRounded sx={{ width: { xs: "24px", sm: "36px" }, height: { xs: "24px", sm: "36px" } }} />
                                                 <Box>
                                                     <Typography variant="h6" fontWeight={700}>Create Item</Typography>
-                                                    <Typography variant="body1" sx={{ display: { xs: "none", sm: "initial" } }}>Create a Found Item</Typography>
+                                                    <Typography variant="body1" sx={{ display: { xs: "none", sm: "initial" } }}>Newly Found Item</Typography>
                                                 </Box>
                                             </Stack>
                                         </CardContent>
@@ -159,7 +159,7 @@ export default function AdminHome() {
                         <Card>
                             <CardContent>
                                 <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                                    <CardTitle title="Items Found Today" icon={<AssignmentLateRounded />} />
+                                    <CardTitle title="Items Found" icon={<AssignmentLateRounded />} />
                                     <LoadingButton onClick={HandleGetItems} loading={ItemsLoading} variant="text" startIcon={<RefreshRounded />} loadingPosition='start' size='small'>Refresh</LoadingButton>
                                 </Box>
                                 <DataGrid

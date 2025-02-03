@@ -5,8 +5,7 @@ import LoginIcon from '@mui/icons-material/LoginRounded';
 import { AppContext } from "../App";
 import NavbarProfile from "./NavbarProfile";
 import NavbarNotifications from "./NavbarNotifications";
-import { DashboardRounded, ForestRounded, LogoutRounded, MenuRounded, PersonRounded, SearchRounded, SettingsRounded, TerminalRounded } from "@mui/icons-material";
-import { HomeRounded } from "@mui/icons-material";
+import { DashboardRounded, ForestRounded, LogoutRounded, MenuRounded, PersonRounded, SettingsRounded, TerminalRounded, HomeRounded, BallotRounded } from "@mui/icons-material";
 import StaffMenu from "./StaffMenu";
 
 
@@ -28,7 +27,7 @@ export default function Navbar() {
                             {!adminPage &&
                                 <Stack direction="row" spacing={1}>
                                     <Button sx={{ fontWeight: 700 }} startIcon={<HomeRounded />} LinkComponent={Link} variant="text" color="inherit" to="/">Home</Button>
-                                    <Button sx={{ fontWeight: 700 }} startIcon={<SearchRounded />} LinkComponent={Link} variant="text" color="inherit" to="/items">Search Items</Button>
+                                    <Button sx={{ fontWeight: 700 }} startIcon={<BallotRounded />} LinkComponent={Link} variant="text" color="inherit" to="/items">Show all items</Button>
                                 </Stack>
                             }
 
@@ -73,8 +72,8 @@ export default function Navbar() {
                     </ListItem>
                     <ListItem key={"About Us"} disablePadding>
                         <ListItemButton LinkComponent={Link} to="/items" onClick={() => setIsDrawerOpen(false)}>
-                            <ListItemIcon><SearchRounded /></ListItemIcon>
-                            <ListItemText primary={"Search Items"} />
+                            <ListItemIcon><BallotRounded /></ListItemIcon>
+                            <ListItemText primary={"Show All Items"} />
                         </ListItemButton>
                     </ListItem>
                 </List>

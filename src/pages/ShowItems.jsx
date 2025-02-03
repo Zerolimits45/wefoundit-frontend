@@ -13,8 +13,6 @@ import { get } from 'aws-amplify/api';
 
 
 export default function ViewItems() {
-    // Routes for admin pages. To add authenication so that only admins can access these pages, add a check for the user's role in the UserContext
-    //const { setIsAdminPage } = useContext(UserContext);
     titleHelper("Search Items")
     const apiUrl = import.meta.env.VITE_API_URL;
     const bucket_url = import.meta.env.VITE_BUCKET_URL
@@ -111,20 +109,20 @@ export default function ViewItems() {
                     <Box display={{ xs: "none", md: "block" }}>
                         <Box display={"flex"} alignItems="center">
                             <SearchRounded sx={{ fontSize: "3rem", color: theme.palette.primary.main, mx: "1rem" }} />
-                            <Typography variant="h4" my={"2rem"} ml={"1rem"} fontWeight={700}>Search Items</Typography>
+                            <Typography variant="h4" my={"2rem"} ml={"1rem"} fontWeight={700}>All Lost Items</Typography>
                         </Box>
 
                         <Divider sx={{ mb: "1rem" }} />
                     </Box>
                     <Stack direction="row" spacing={"0.5rem"} flexWrap={"wrap"} useFlexGap>
-                        <Button variant="contained" startIcon={<NotificationAddRounded />}>Subscribe...</Button>
+                        <Button variant="contained">Add Notification</Button>
                         <LoadingButton loadingPosition='start' variant="outlined" startIcon={<RefreshRounded />} onClick={handleGetItems} loading={loading}>Refresh</LoadingButton>
                     </Stack>
                     <Grid2 container spacing={2} sx={{ mt: "1rem" }}>
                         <Grid2 size={{ md: 3, xs: 12 }}>
                             <Card>
                                 <CardContent>
-                                    <CardTitle title="Category Filter" icon={<CategoryRounded />} />
+                                    <CardTitle title="Filter By Category"/>
                                     <Box sx={{ mt: "1rem" }}>
                                         <Stack direction="row" spacing={"0.5rem"} flexWrap={"wrap"} useFlexGap>
                                             {!categoryLoading && (
@@ -191,7 +189,7 @@ export default function ViewItems() {
                                                     <Typography gutterBottom variant="h6" fontWeight={700}>
                                                         {item.name}
                                                     </Typography>
-                                                    <Chip label={item.categoryName} icon={<CategoryRounded />} size='small' />
+                                                    <Chip label={item.categoryName} size='small' />
                                                 </CardContent>
                                                 <CardActions>
                                                     <Button size="medium" startIcon={<InfoRounded />} onClick={() => {
@@ -202,12 +200,12 @@ export default function ViewItems() {
                                         </Grid2>
                                     ))}
 
-                                {// If no items are found}
+                                {
                                     !loading && items.length === 0 && (
                                         <Grid2 size={{ xs: 12 }}>
                                             <Stack direction={"column"} spacing={'0.5rem'} py={"2rem"} sx={{ justifyContent: "center", alignItems: "center", borderRadius: "10px", border: "1px solid lightgrey" }}>
                                                 <CloseRounded sx={{ height: "32px", width: "32px", color: "grey" }} />
-                                                <Typography variant="body1" color="grey">No items in category</Typography>
+                                                <Typography variant="body1" color="grey">No items in this category</Typography>
                                             </Stack>
                                         </Grid2>
                                     )}

@@ -8,6 +8,7 @@ import { useSnackbar } from "notistack";
 import CardTitle from '../components/CardTitle';
 import { get } from 'aws-amplify/api';
 import ItemDialog from '../components/ItemDialog';
+import { gsap } from 'gsap';
 
 
 function Home() {
@@ -56,26 +57,43 @@ function Home() {
         handleGetItems()
     }, [])
 
+    const charRef1 = useRef([]);
+
+    useLayoutEffect(() => {
+        let ctx = gsap.context(() => {
+            const tl = gsap.timeline()
+            tl.from(charRef1.current, { yPercent: -100, opacity: 0, duration: 0.5, delay: 0, stagger: 0.5, ease: "bounce.out" })
+        })
+
+        return () => ctx.revert();
+    }, [])
+
 
 
     return (
         <>
-            <Box sx={{ backgroundColor: theme.palette.primary.main, py: "6rem" }}>
+            <Box sx={{ backgroundColor: theme.palette.primary.main, py: "7rem" }}>
                 <Container maxWidth="xl">
                     <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "1rem", flexDirection: { xs: "column-reverse", md: "row" }, }}>
                         <Box sx={{ flexGrow: 1 }}>
-                            <Typography variant="h2" fontWeight={700} sx={{ color: theme.palette.primary.contrastText }}>We Found It</Typography>
-                            <Typography variant="h5" fontWeight={400} sx={{ color: theme.palette.primary.contrastText }}>A platform for reclaiming lost items</Typography>
+                        <Typography variant='h1' style={{ fontWeight: "900", color: theme.palette.primary.contrastText }}>
+                            {"We Found It".split("").map((char, index) => (
+                                <span key={index} ref={el => charRef1.current[index] = el} style={{ display: 'inline-block', whiteSpace: "pre"  }}>
+                                    {char}
+                                </span>
+                            ))}
+                        </Typography>
+                            <Typography variant="h5" fontWeight={400} sx={{ color: theme.palette.primary.contrastText }}>Looking for something u lost?</Typography>
 
-                            <Button variant="white" color="secondary" sx={{ mt: "1rem" }} component={Link} to="/items" startIcon={<SearchRounded />}>Search for items</Button>
+                            <Button variant="white" color="secondary" sx={{ mt: "1rem" }} component={Link} to="/items">See all found items</Button>
                         </Box>
                     </Box>
                 </Container>
             </Box>
             <Container maxWidth="xl">
-                <Typography variant="h5" my={"2rem"} fontWeight={700} sx={{ borderBottom: "3px dashed " + theme.palette.primary.main, width: "fit-content" }}>Latest Found Items</Typography>
+                <Typography variant="h5" my={"2rem"} fontWeight={700} sx={{ borderBottom: "3px solid " + theme.palette.primary.main, width: "fit-content" }}>Recent Items</Typography>
                 <Grid2 container spacing={2} sx={{ mb: "1rem"}}>
-                    {// If items are loading, show skeleton loaders instead of the items}
+                    {
                         loading && [1, 2, 3].map((i) => (
                             <Grid2 size={{ lg: 4, sm: 6, xs: 12 }} key={i}>
                                 <Card sx={{ width: "100%" }}>
@@ -91,7 +109,7 @@ function Home() {
                                 </Card>
                             </Grid2>
                         ))}
-                    {// Show first 3 items
+                    {
                         items.slice(0, 3).map((item, i) => (
                             <Grid2 size={{ lg: 4, sm: 6, xs: 12 }} key={i}>
                                 <Card sx={{ width: "100%" }}>
@@ -105,7 +123,7 @@ function Home() {
                                         <Typography gutterBottom variant="h6" fontWeight={700}>
                                             {item.name}
                                         </Typography>
-                                        <Chip label={item.categoryName} icon={<CategoryRounded />} size='small' />
+                                        <Chip label={item.categoryName} size='small' />
                                     </CardContent>
                                     <CardActions>
                                         <Button size="medium" startIcon={<InfoRounded />} onClick={() => {

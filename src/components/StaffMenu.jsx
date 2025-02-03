@@ -111,22 +111,20 @@ export default function StaffMenu(props) {
                     <ListItemIcon>
                         <HomeRounded />
                     </ListItemIcon>
-                    <ListItemText primary="Home Dashboard" sx={{marginRight: "2rem"}} />
-                    <Typography variant="caption" color="text.secondary">Ctrl + Alt + O</Typography>
+                    <ListItemText primary="Staff Dashboard" sx={{marginRight: "2rem"}} />
                 </MenuItem>
                 <Divider />
                 <MenuItem onClick={() => navigate("/staff/items")}>
                     <ListItemIcon>
                         <FlagRounded />
                     </ListItemIcon>
-                    <ListItemText primary="Manage Items" sx={{marginRight: "2rem"}}/>
-                    <Typography variant="caption" color="text.secondary">Ctrl + Alt + I</Typography>
+                    <ListItemText primary="View All Items" sx={{marginRight: "2rem"}}/>
                 </MenuItem>
                 <MenuItem onClick={() => navigate("/staff/items/create")}>
                     <ListItemIcon>
                         <AddRounded />
                     </ListItemIcon>
-                    <ListItemText primary="Add Found Item" />
+                    <ListItemText primary="Create Item" />
                 </MenuItem>
             </Menu>
             <Menu
@@ -150,12 +148,6 @@ export default function StaffMenu(props) {
                     <ListItemText primary="New User..." />
                 </MenuItem>
                 <Divider />
-                <MenuItem onClick={() => navigate("/about")}>
-                    <ListItemIcon>
-                        <InfoRounded />
-                    </ListItemIcon>
-                    <ListItemText primary="About ReclaimIt" />
-                </MenuItem>
             </Menu>
         </>
 

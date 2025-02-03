@@ -11,7 +11,7 @@ import ProfileRoutes from './Profile/ProfileRoutes'
 import { AppContext } from '../App'
 import About from './About'
 import HomeTest from './HomeTest'
-import ViewItems from './ViewItems'
+import ShowItems from './ShowItems'
 
 
 function UserRoutes() {
@@ -34,7 +34,7 @@ function UserRoutes() {
             <Route path="/test" element={<Test />} />
             <Route path="/profile/*" element={<ProfileRoutes />} />
             <Route path="/about" element={<About />} />
-            <Route path="/items" element={<ViewItems />} />
+            <Route path="/items" element={<ShowItems />} />
         </Routes>
     )
 }

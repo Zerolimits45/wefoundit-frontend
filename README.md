@@ -1,4 +1,4 @@
-# ReclaimIt Frontend
+# WeFoundIt Frontend
 
 Project for Cloud Developement module at Nanyang Polytechnic.
 
