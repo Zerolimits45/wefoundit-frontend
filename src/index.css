@@ -1,0 +1,44 @@
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Nunito",'Nunito Sans', sans-serif;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+  background-color: transparent;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(155, 155, 155, 0.75);
+  border-radius: 20px;
+  border: transparent;
+}
+
+._tc_offscreeneded {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 0px;
+  height: 0px;
+  overflow: hidden;
+}
+
+.filepond--panel-root {
+  background-color: white;
+  border: 1px solid lightgray;
+  font-family: Nunito,"Nunito Sans",Roboto,"Segoe UI","Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}
+
+.filepond--root {
+  font-family: Nunito,"Nunito Sans",Roboto,"Segoe UI","Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}
