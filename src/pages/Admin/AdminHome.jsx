@@ -115,8 +115,7 @@ export default function AdminHome() {
         <>
             <Box my={"1rem"}>
                 <Card>
-                    <CardContent>
-                        <CardTitle title="Shortcuts" icon={<AppsRounded />} />
+                    <CardContent>   
                         <Grid container spacing={2} mt={"0"}>
                             <Grid item xs={12} md={6}>
                                 <Card variant='draggable'>

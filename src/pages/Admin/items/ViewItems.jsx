@@ -240,7 +240,7 @@ function ViewItems() {
                     <Divider sx={{ mb: "1rem" }} />
                 </Box>
                 <Box display={"flex"}>
-                    <Button variant="contained" startIcon={<AddRounded />} onClick={handleNewOpen}>New...</Button>
+                    <Button variant="contained" startIcon={<AddRounded />} onClick={handleNewOpen}>New Item</Button>
                     <LoadingButton loadingPosition='start' variant="outlined" startIcon={<RefreshRounded />} onClick={handleGetItems} loading={loading} sx={{ ml: "1rem" }}>Refresh</LoadingButton>
                 </Box>
                 <DataGrid
